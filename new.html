@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+    body{
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .icon-column{
+        display: flex;
+        flex-direction: column;   /* one below one */
+        align-items: flex-start;
+        gap: 20px;
+        padding: 30px;
+    }
+
+    .icon-column i{
+        font-size: 28px;
+        color: #0d6efd;
+        cursor: pointer;
+        transition: all 0.3s ease;   /* smooth hover */
+    }
+
+    /* Hover animation */
+    .icon-column i:hover{
+        transform: translateX(10px) scale(1.2);
+        color: #000;
+    }
+
+    /* Slide-in animation on load */
+    .icon-column i{
+        opacity: 0;
+        animation: slideIn 0.6s forwards;
+    }
+
+    .icon-column i:nth-child(1){ animation-delay: 0.1s; }
+    .icon-column i:nth-child(2){ animation-delay: 0.2s; }
+    .icon-column i:nth-child(3){ animation-delay: 0.3s; }
+    .icon-column i:nth-child(4){ animation-delay: 0.4s; }
+
+    @keyframes slideIn{
+        from{
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        to{
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="icon-column">
+    <i class="fab fa-linkedin"></i>
+    <i class="fab fa-github"></i>
+    <i class="fab fa-instagram"></i>
+    <i class="fas fa-envelope"></i>
+</div>
+
+</body>
+</html>
