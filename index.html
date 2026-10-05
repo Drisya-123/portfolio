@@ -1,370 +1,1700 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Drisya K | Data Analyst & Developer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drisya K | Data Analyst & Developer</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-  <style>
-    :root {
-      --primary: #2563eb;
-      --dark: #0f172a;
-      --glass: rgba(255, 255, 255, 0.9);
-      --bg-light: #f8fafc;
-    }
-
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      color: #334155;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-    }
-
-    /* Navbar */
-    .navbar {
-      background: var(--glass) !important;
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-      padding: 1rem 0;
-    }
-  .icon-column{
-        display: flex;
-        flex-direction: column;   /* one below one */
-        align-items: flex-start;
-        gap: 15px;
-        padding: 25px;
-    }
-
-    .icon-column i{
-        font-size: 28px;
-        color: #0d6efd;
-        cursor: pointer;
-        transition: all 0.3s ease;   /* smooth hover */
-    }
-.icon-column{
-  position: fixed;
-  left: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1000;
+<style>
+:root{
+  --primary:#2563eb;
+  --primary-soft:rgba(37,99,235,.1);
+  --bg:#ffffff;
+  --bg-alt:#f8fafc;
+  --card:#ffffff;
+  --text:#334155;
+  --heading:#0f172a;
+  --border:#e2e8f0;
+  --glass:rgba(255,255,255,.88);
 }
 
-    /* Hover animation */
-    .icon-column i:hover{
-        transform: translateX(10px) scale(1.2);
-        color: #000;
-    }
+[data-bs-theme="dark"]{
+  --primary:#60a5fa;
+  --primary-soft:rgba(96,165,250,.14);
+  --bg:#0b1220;
+  --bg-alt:#111a2e;
+  --card:#16213a;
+  --text:#cbd5e1;
+  --heading:#f1f5f9;
+  --border:#25324d;
+  --glass:rgba(11,18,32,.88);
+}
 
-    /* Slide-in animation on load */
-    .icon-column i{
-        opacity: 0;
-        animation: slideIn 0.6s forwards;
-    }
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:80px;
+}
 
-    .icon-column i:nth-child(1){ animation-delay: 0.1s; }
-    .icon-column i:nth-child(2){ animation-delay: 0.2s; }
-    .icon-column i:nth-child(3){ animation-delay: 0.3s; }
-    .icon-column i:nth-child(4){ animation-delay: 0.4s; }
+body{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+  transition:background .3s,color .3s;
+}
 
-    @keyframes slideIn{
-        from{
-            opacity: 0;
-            transform: translateX(-20px);
-        }
-        to{
-            opacity: 1;
-            transform: translateX(0);
-        }
-    }
-    /* Hero Section */
-    .hero {
-      background: radial-gradient(circle at top right, #f8fafc, #e2e8f0);
-      min-height: 95vh;
-      display: flex;
-      align-items: center;
-      padding-top: 80px;
-    }
+h1,h2,h3,h4,h5,h6{
+  color:var(--heading);
+}
 
-    .section-padding { padding: 100px 0; }
+.text-primary{
+  color:var(--primary)!important;
+}
 
-    /* Modern Pill Skills */
-    .skills-wrapper {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.2rem;
-    }
-    .skill-pill {
-      background: white;
-      padding: 12px 24px;
-      border-radius: 50px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      border: 1px solid #e2e8f0;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-    }
-    .skill-pill:hover {
-      transform: scale(1.1);
-      border-color: var(--primary);
-      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.1);
-    }
-    .html-icon { color: #e34f26; }
-    .boot-icon { color: #7952b3; }
-    .py-icon   { color: #3776ab; }
-    .db-icon   { color: #00758f; }
-    .bi-icon   { color: #f2c811; }
+.text-muted{
+  color:var(--text)!important;
+  opacity:.75;
+}
 
-    /* Project Cards */
-    .project-card {
-      border: none;
-      border-radius: 20px;
-      overflow: hidden;
-      transition: all 0.4s ease;
-      background: #fff;
-      height: 100%;
-    }
-    .project-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1) !important;
-    }
-    .project-img-container {
-      height: 200px;
-      background: #f1f5f9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .project-img-container i { font-size: 3.5rem; color: #cbd5e1; }
-    .tech-badge {
-      background: rgba(37, 99, 235, 0.1);
-      color: var(--primary);
-      font-size: 0.75rem;
-      padding: 4px 12px;
-      border-radius: 50px;
-      font-weight: 600;
-    }
+.bg-alt{
+  background:var(--bg-alt);
+}
 
-    /* Certifications */
-    .cert-card {
-      background: white;
-      border-radius: 15px;
-      border-left: 5px solid var(--primary);
-      padding: 1.5rem;
-      transition: 0.3s;
-      height: 100%;
-    }
-    .cert-card:hover { transform: translateX(10px); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+.section-padding{
+  padding:100px 0;
+}
 
-    /* Contact Links */
-    .contact-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 55px;
-      height: 55px;
-      background: white;
-      border-radius: 50%;
-      font-size: 1.4rem;
-      color: var(--primary);
-      transition: 0.3s;
-      border: 1px solid #e2e8f0;
-      text-decoration: none;
-    }
-    .contact-link:hover {
-      background: var(--primary);
-      color: white;
-      transform: translateY(-5px);
-    }
+.section-title{
+  font-weight:800;
+  margin-bottom:.5rem;
+}
 
-    .btn-resume {
-      background: var(--primary);
-      color: white;
-      padding: 10px 25px;
-      border-radius: 50px;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    .btn-resume:hover { background: var(--dark); color: white; }
-  </style>
+:focus-visible{
+  outline:3px solid var(--primary);
+  outline-offset:3px;
+}
+
+/* Scroll progress */
+#progress{
+  position:fixed;
+  top:0;
+  left:0;
+  height:3px;
+  width:0;
+  background:var(--primary);
+  z-index:2000;
+}
+
+/* Navbar */
+.navbar{
+  background:var(--glass)!important;
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+  padding:.9rem 0;
+}
+
+.navbar .nav-link{
+  color:var(--text);
+  font-weight:600;
+}
+
+.navbar .nav-link.active,
+.navbar .nav-link:hover{
+  color:var(--primary);
+}
+
+.btn-resume{
+  background:var(--primary);
+  color:#fff;
+  padding:9px 22px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:600;
+  transition:.3s;
+}
+
+.btn-resume:hover{
+  background:var(--heading);
+  color:var(--bg);
+}
+
+#themeToggle{
+  border:1px solid var(--border);
+  background:var(--card);
+  color:var(--heading);
+  width:40px;
+  height:40px;
+  border-radius:50%;
+}
+
+/* Social sidebar */
+.icon-column{
+  position:fixed;
+  left:15px;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:1000;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.icon-column a{
+  font-size:1.5rem;
+  color:var(--primary);
+  transition:.3s;
+  opacity:0;
+  animation:slideIn .6s forwards;
+}
+
+.icon-column a:nth-child(2){animation-delay:.1s}
+.icon-column a:nth-child(3){animation-delay:.2s}
+
+.icon-column a:hover{
+  transform:translateX(8px) scale(1.2);
+  color:var(--heading);
+}
+
+@keyframes slideIn{
+  from{opacity:0;transform:translateX(-20px)}
+  to{opacity:1;transform:none}
+}
+
+@media(max-width:991px){
+  .icon-column{display:none}
+}
+
+/* Hero */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding-top:80px;
+  background:
+    radial-gradient(circle at top right,var(--primary-soft),transparent 55%),
+    var(--bg-alt);
+  position:relative;
+  overflow:hidden;
+}
+
+#bg3d{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:0;
+}
+
+.hero .container{
+  position:relative;
+  z-index:1;
+}
+
+.avatar{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  margin:0 auto 1.5rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:2.6rem;
+  font-weight:800;
+  color:#fff;
+  background:linear-gradient(135deg,#2563eb,#7c3aed);
+  box-shadow:0 10px 30px rgba(37,99,235,.35);
+  animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0) rotateY(0)}
+  50%{transform:translateY(-12px) rotateY(180deg)}
+}
+
+.stat{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:1rem 1.6rem;
+  min-width:130px;
+}
+
+.stat h3{
+  margin:0;
+  font-weight:800;
+  color:var(--primary);
+}
+
+.stat small{
+  color:var(--text);
+  opacity:.8;
+}
+
+/* Skills */
+.skill-pill{
+  background:var(--card);
+  padding:12px 24px;
+  border-radius:50px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  border:1px solid var(--border);
+  transition:all .4s cubic-bezier(.175,.885,.32,1.275);
+}
+
+.skill-pill:hover{
+  transform:scale(1.08);
+  border-color:var(--primary);
+  box-shadow:0 10px 20px var(--primary-soft);
+}
+
+.skills-wrapper{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:1rem;
+}
+
+.skill-category{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:2rem;
+  height:100%;
+  box-shadow:0 5px 20px rgba(0,0,0,.04);
+}
+
+.skill-category h5{
+  margin-bottom:1.5rem;
+}
+
+.skill-item{
+  padding:12px 0;
+  border-bottom:1px solid var(--border);
+}
+
+.skill-item:last-child{
+  border-bottom:0;
+}
+
+.learning-box{
+  background:var(--primary-soft);
+  border:1px solid rgba(37,99,235,.15);
+  border-radius:20px;
+}
+
+.learning-badge{
+  display:inline-block;
+  background:var(--primary);
+  color:#fff;
+  border-radius:50px;
+  padding:7px 15px;
+  font-size:.85rem;
+  font-weight:600;
+}
+
+/* Timeline */
+.timeline{
+  border-left:3px solid var(--primary);
+  padding-left:1.5rem;
+  margin-left:.5rem;
+}
+
+.timeline-item{
+  position:relative;
+  margin-bottom:1.8rem;
+}
+
+.timeline-item::before{
+  content:"";
+  position:absolute;
+  left:-2.05rem;
+  top:6px;
+  width:14px;
+  height:14px;
+  border-radius:50%;
+  background:var(--primary);
+  border:3px solid var(--bg);
+}
+
+.timeline-item small{
+  color:var(--primary);
+  font-weight:700;
+}
+
+/* Projects */
+.filter-btn{
+  border:1px solid var(--border);
+  background:var(--card);
+  color:var(--text);
+  border-radius:50px;
+  padding:6px 20px;
+  font-weight:600;
+  transition:.3s;
+}
+
+.filter-btn.active,
+.filter-btn:hover{
+  background:var(--primary);
+  color:#fff;
+  border-color:var(--primary);
+}
+
+.project-card{
+  border:1px solid var(--border);
+  border-radius:20px;
+  overflow:hidden;
+  transition:all .4s;
+  background:var(--card);
+  height:100%;
+  display:flex;
+  flex-direction:column;
+}
+
+.project-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 20px 40px rgba(0,0,0,.12);
+}
+
+.project-img{
+  height:170px;
+  background:var(--primary-soft);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.project-img i{
+  font-size:3.5rem;
+  color:var(--primary);
+}
+
+.project-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.tech-badge{
+  background:var(--primary-soft);
+  color:var(--primary);
+  font-size:.75rem;
+  padding:4px 12px;
+  border-radius:50px;
+  font-weight:600;
+  display:inline-block;
+  margin:2px;
+}
+
+.project-card p{
+  display:-webkit-box;
+  -webkit-line-clamp:3;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+.project-item{
+  transition:opacity .3s,transform .3s;
+}
+
+.project-item.hide{
+  display:none;
+}
+
+/* Certificates */
+.cert-card{
+  background:var(--card);
+  border-radius:15px;
+  border-left:5px solid var(--primary);
+  padding:1.5rem;
+  transition:.3s;
+  height:100%;
+}
+
+.cert-card:hover{
+  transform:translateX(10px);
+  box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.course-card{
+  background:linear-gradient(135deg,#1e3a8a,#2563eb 60%,#7c3aed);
+  color:#fff;
+  border-radius:20px;
+  padding:2rem;
+  position:relative;
+  overflow:hidden;
+}
+
+.course-card h4,
+.course-card h5{
+  color:#fff;
+}
+
+.course-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    110deg,
+    transparent 30%,
+    rgba(255,255,255,.18) 50%,
+    transparent 70%
+  );
+  transform:translateX(-100%);
+  animation:shine 4s infinite;
+}
+
+@keyframes shine{
+  to{transform:translateX(100%)}
+}
+
+.course-tag{
+  background:rgba(255,255,255,.18);
+  border-radius:50px;
+  padding:4px 14px;
+  font-size:.8rem;
+  font-weight:600;
+  display:inline-block;
+  margin:3px;
+}
+
+/* Contact */
+.contact-link{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:55px;
+  height:55px;
+  background:var(--card);
+  border-radius:50%;
+  font-size:1.4rem;
+  color:var(--primary);
+  transition:.3s;
+  border:1px solid var(--border);
+  text-decoration:none;
+}
+
+.contact-link:hover{
+  background:var(--primary);
+  color:#fff;
+  transform:translateY(-5px);
+}
+
+.contact-form{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:2rem;
+}
+
+.contact-form .form-control{
+  background:var(--bg);
+  color:var(--text);
+  border-color:var(--border);
+}
+
+footer{
+  background:var(--card);
+  border-top:1px solid var(--border);
+}
+
+#toTop{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  border:0;
+  background:var(--primary);
+  color:#fff;
+  display:none;
+  z-index:1000;
+  box-shadow:0 6px 16px rgba(0,0,0,.2);
+}
+
+.gradient-text{
+  background:linear-gradient(90deg,#2563eb,#7c3aed,#06b6d4,#2563eb);
+  background-size:300% 100%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  animation:grad 6s linear infinite;
+}
+
+@keyframes grad{
+  to{background-position:300% 0}
+}
+
+.tilt{
+  transform-style:preserve-3d;
+  transition:transform .15s ease-out,box-shadow .3s;
+  will-change:transform;
+}
+
+.tilt>*{
+  transform:translateZ(25px);
+}
+
+@media(prefers-reduced-motion:reduce){
+  *{
+    animation:none!important;
+    transition:none!important;
+  }
+
+  html{
+    scroll-behavior:auto;
+  }
+}
+</style>
 </head>
+
 <body>
+
+<div id="progress"></div>
+
+<!-- Social Links -->
 <div class="icon-column">
-  <i class="bi bi-linkedin"></i>
-  <i class="bi bi-github"></i>
-  <i class="bi bi-instagram"></i>
-  <i class="bi bi-envelope-fill"></i>
+
+  <a href="https://www.linkedin.com/in/drisya-k-898174395/"
+     aria-label="LinkedIn"
+     target="_blank"
+     rel="noopener">
+    <i class="bi bi-linkedin"></i>
+  </a>
+
+  <a href="https://github.com/Drisya-123"
+     aria-label="GitHub"
+     target="_blank"
+     rel="noopener">
+    <i class="bi bi-github"></i>
+  </a>
+
+  <a href="mailto:kdrisya603@gmail.com"
+     aria-label="Email">
+    <i class="bi bi-envelope-fill"></i>
+  </a>
+
 </div>
 
-<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top">
+
   <div class="container">
-    <a class="navbar-brand fw-bold text-primary" href="#">DRISYA K</a>
-    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#mainNav">
+
+    <a class="navbar-brand fw-bold text-primary" href="#home">
+      DRISYA K
+    </a>
+
+    <button class="navbar-toggler"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNav"
+            aria-label="Toggle menu">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse justify-content-center" id="mainNav">
-      <ul class="navbar-nav gap-3">
-        <li class="nav-item"><a class="nav-link fw-semibold" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold" href="#skills">Skills</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold" href="#projects">Projects</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold" href="#certificates">Certificates</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold" href="#contact">Contact</a></li>
+
+      <ul class="navbar-nav gap-lg-3">
+
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#skills">Skills</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#projects">Projects</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#certificates">Education</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
+
       </ul>
+
     </div>
-    <a href="#" class="btn-resume d-none d-lg-block shadow-sm">Resume</a>
+
+    <div class="d-flex align-items-center gap-3">
+
+      <button id="themeToggle"
+              aria-label="Toggle dark mode">
+        <i class="bi bi-moon-stars-fill"></i>
+      </button>
+
+      <a href="Drisya_K.docx"
+         download
+         class="btn-resume d-none d-lg-block">
+        Resume
+      </a>
+
+    </div>
+
   </div>
+
 </nav>
 
-<section class="hero">
+<!-- Hero -->
+<header class="hero" id="home">
+
+  <canvas id="bg3d" aria-hidden="true"></canvas>
+
   <div class="container text-center">
+
     <div data-aos="fade-up">
-      <h1 class="display-3 fw-bold text-dark mb-3">Hi, I'm <span class="text-primary">Drisya</span></h1>
-      <h3 class="mb-4 text-muted">I specialize in <span id="typed"></span></h3>
-      <p class="lead mb-5 mx-auto text-secondary" style="max-width: 700px;">
-        BSc Physics graduate bridging the gap between scientific analysis and web solutions.
+
+      <div class="avatar">
+        DK
+      </div>
+
+      <h1 class="display-3 fw-bold mb-3">
+        Hi, I'm <span class="gradient-text">Drisya</span>
+      </h1>
+
+      <h3 class="mb-4 text-muted">
+        I specialize in <span id="typed"></span>
+      </h3>
+
+      <p class="lead mb-4 mx-auto text-muted" style="max-width:700px">
+        BSc Physics graduate and Data Analytics course completer with
+        practical skills in Python, Power BI, Excel, SQL and web development.
+        Currently expanding my backend development skills with .NET and ABP Framework.
       </p>
-      <div class="d-flex justify-content-center gap-3">
-        <a href="#projects" class="btn btn-primary btn-lg px-5 rounded-pill shadow">View Work</a>
-        <a href="#contact" class="btn btn-outline-primary btn-lg px-5 rounded-pill">Hire Me</a>
-      </div>
-    </div>
-  </div>
-</section>
 
+      <div class="d-flex justify-content-center gap-3 mb-5 flex-wrap">
+
+        <a href="#projects"
+           class="btn btn-primary btn-lg px-5 rounded-pill shadow">
+          View Work
+        </a>
+
+        <a href="#contact"
+           class="btn btn-outline-primary btn-lg px-5 rounded-pill">
+          Hire Me
+        </a>
+
+      </div>
+
+      <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+        <div class="stat">
+          <h3>
+            <span class="count" data-to="3">0</span>+
+          </h3>
+          <small>Projects</small>
+        </div>
+
+        <div class="stat">
+          <h3>
+            <span class="count" data-to="1">0</span>
+          </h3>
+          <small>Course Completed</small>
+        </div>
+
+        <div class="stat">
+          <h3>
+            <span class="count" data-to="8">0</span>+
+          </h3>
+          <small>Technical Skills</small>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</header>
+
+<!-- About -->
 <section id="about" class="section-padding">
-  <div class="container text-center">
-    <div class="row justify-content-center" data-aos="fade-up">
-      <div class="col-lg-8">
-        <h2 class="fw-bold mb-4">About Me</h2>
-        <p class="lead text-muted" style="line-height: 1.8;">
-          As a <strong>BSc Physics</strong> graduate, I apply a mathematical and analytical mindset to 
-          <strong>Data Analytics and Full Stack Development</strong>. I build tools that uncover patterns, 
-          automate workflows, and provide actionable insights. My focus is on efficiency, clean code, and database integrity.
+
+  <div class="container">
+
+    <div class="row justify-content-center">
+
+      <div class="col-lg-8 text-center" data-aos="fade-up">
+
+        <h2 class="section-title">
+          About Me
+        </h2>
+
+        <p class="lead text-muted" style="line-height:1.8">
+
+          I am a <strong>BSc Physics</strong> graduate with a strong
+          analytical mindset and a recently completed
+          <strong>Data Analytics</strong> course.
+
+          I have practical knowledge of
+          <strong>Python, Power BI, Excel, SQL, HTML, CSS, Bootstrap
+          and Django</strong>, and I enjoy building data-driven and
+          responsive web applications.
+
+          I am currently expanding my backend development skills with
+          <strong>C#, .NET, Entity Framework Core and ABP Framework</strong>
+          through hands-on projects.
+
         </p>
+
       </div>
+
     </div>
+
+    <div class="row justify-content-center mt-5">
+
+      <div class="col-lg-7" data-aos="fade-up">
+
+        <h5 class="fw-bold mb-4 text-center">
+          My Learning Journey
+        </h5>
+
+        <div class="timeline">
+
+          <div class="timeline-item">
+
+            <small>Currently</small>
+
+            <h6 class="fw-bold mb-1">
+              Expanding Backend Development Skills
+            </h6>
+
+            <p class="text-muted small mb-0">
+              Building practical projects with C#, .NET,
+              Entity Framework Core and ABP Framework while
+              continuing to work with Python and Django.
+            </p>
+
+          </div>
+
+          <div class="timeline-item">
+
+            <small>Completed</small>
+
+            <h6 class="fw-bold mb-1">
+              Data Analytics Course
+            </h6>
+
+            <p class="text-muted small mb-0">
+              Completed a hands-on Data Analytics course covering
+              Python, SQL, Excel, Power BI and web development.
+            </p>
+
+          </div>
+
+          <div class="timeline-item">
+
+            <small>Education</small>
+
+            <h6 class="fw-bold mb-1">
+              BSc Physics
+            </h6>
+
+            <p class="text-muted small mb-0">
+              Developed a strong foundation in mathematics,
+              analytical thinking and problem solving.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
+
 </section>
 
-<section id="skills" class="section-padding bg-light">
+<!-- Skills -->
+<section id="skills" class="section-padding bg-alt">
+
   <div class="container">
+
     <div class="text-center mb-5" data-aos="fade-up">
-      <h2 class="fw-bold">Technical Toolbox</h2>
-      <p class="text-muted">The technologies I use to build data-driven apps</p>
+
+      <h2 class="section-title">
+        Technical Skills
+      </h2>
+
+      <p class="text-muted">
+        Practical skills in data analytics and web development,
+        with backend development currently in progress.
+      </p>
+
     </div>
-    <div class="skills-wrapper">
-      <div class="skill-pill" data-aos="zoom-in"><i class="bi bi-filetype-py py-icon"></i><span class="fw-bold">Python / Django</span></div>
-      <div class="skill-pill" data-aos="zoom-in" data-aos-delay="100"><i class="bi bi-database-fill db-icon"></i><span class="fw-bold">MySQL / MongoDB</span></div>
-      <div class="skill-pill" data-aos="zoom-in" data-aos-delay="200"><i class="bi bi-bar-chart-line-fill bi-icon"></i><span class="fw-bold">Power BI</span></div>
-      <div class="skill-pill" data-aos="zoom-in" data-aos-delay="300"><i class="bi bi-bootstrap-fill boot-icon"></i><span class="fw-bold">Bootstrap 5</span></div>
-      <div class="skill-pill" data-aos="zoom-in" data-aos-delay="400"><i class="bi bi-filetype-html html-icon"></i><span class="fw-bold">HTML5 / CSS3</span></div>
-      <div class="skill-pill" data-aos="zoom-in" data-aos-delay="500"><i class="bi bi-file-earmark-excel text-success"></i><span class="fw-bold">Advanced Excel</span></div>
+
+    <!-- Skill Pills -->
+    <div class="skills-wrapper mb-5">
+
+      <div class="skill-pill" data-aos="zoom-in">
+        <i class="bi bi-filetype-py" style="color:#3776ab"></i>
+        <span class="fw-bold">Python</span>
+      </div>
+
+      <div class="skill-pill" data-aos="zoom-in" data-aos-delay="100">
+        <i class="bi bi-bar-chart-line-fill" style="color:#f2c811"></i>
+        <span class="fw-bold">Power BI</span>
+      </div>
+
+      <div class="skill-pill" data-aos="zoom-in" data-aos-delay="200">
+        <i class="bi bi-file-earmark-excel text-success"></i>
+        <span class="fw-bold">Advanced Excel</span>
+      </div>
+
+      <div class="skill-pill" data-aos="zoom-in" data-aos-delay="300">
+        <i class="bi bi-database-fill" style="color:#00758f"></i>
+        <span class="fw-bold">MySQL / SQL</span>
+      </div>
+
+      <div class="skill-pill" data-aos="zoom-in" data-aos-delay="400">
+        <i class="bi bi-filetype-html" style="color:#e34f26"></i>
+        <span class="fw-bold">HTML5 / CSS3</span>
+      </div>
+
+      <div class="skill-pill" data-aos="zoom-in" data-aos-delay="500">
+        <i class="bi bi-bootstrap-fill" style="color:#7952b3"></i>
+        <span class="fw-bold">Bootstrap 5</span>
+      </div>
+
+      <div class="skill-pill" data-aos="zoom-in" data-aos-delay="600">
+        <i class="bi bi-code-slash" style="color:#f7df1e"></i>
+        <span class="fw-bold">JavaScript</span>
+      </div>
+
+      <div class="skill-pill" data-aos="zoom-in" data-aos-delay="700">
+        <i class="bi bi-server" style="color:#092e20"></i>
+        <span class="fw-bold">Django</span>
+      </div>
+
+      <div class="skill-pill" data-aos="zoom-in" data-aos-delay="800">
+        <i class="bi bi-database" style="color:#47A248"></i>
+        <span class="fw-bold">MongoDB</span>
+      </div>
+
     </div>
+
+    <!-- Skill Categories -->
+    <div class="row g-4 justify-content-center">
+
+      <!-- Data Analytics -->
+      <div class="col-md-5" data-aos="fade-up">
+
+        <div class="skill-category">
+
+          <h5 class="fw-bold">
+            <i class="bi bi-bar-chart-fill text-primary me-2"></i>
+            Data Analytics
+          </h5>
+
+          <div class="skill-item">
+            <strong>Power BI</strong>
+            <p class="text-muted small mb-0">
+              Data visualization, dashboards and reporting
+            </p>
+          </div>
+
+          <div class="skill-item">
+            <strong>Advanced Excel</strong>
+            <p class="text-muted small mb-0">
+              Data analysis, formulas and reporting
+            </p>
+          </div>
+
+          <div class="skill-item">
+            <strong>Python</strong>
+            <p class="text-muted small mb-0">
+              Programming and data analysis fundamentals
+            </p>
+          </div>
+
+          <div class="skill-item">
+            <strong>MySQL / SQL</strong>
+            <p class="text-muted small mb-0">
+              Database queries and data handling
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Web Development -->
+      <div class="col-md-5" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="skill-category">
+
+          <h5 class="fw-bold">
+            <i class="bi bi-code-slash text-primary me-2"></i>
+            Web Development
+          </h5>
+
+          <div class="skill-item">
+            <strong>HTML5 / CSS3</strong>
+            <p class="text-muted small mb-0">
+              Responsive and clean website layouts
+            </p>
+          </div>
+
+          <div class="skill-item">
+            <strong>Bootstrap 5</strong>
+            <p class="text-muted small mb-0">
+              Responsive UI development
+            </p>
+          </div>
+
+          <div class="skill-item">
+            <strong>JavaScript</strong>
+            <p class="text-muted small mb-0">
+              Interactive UI effects and functionality
+            </p>
+          </div>
+
+          <div class="skill-item">
+            <strong>Django</strong>
+            <p class="text-muted small mb-0">
+              Backend development and web application fundamentals
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Currently Learning -->
+      <div class="col-md-10 mt-4" data-aos="fade-up">
+
+        <div class="learning-box p-4">
+
+          <h5 class="fw-bold mb-3">
+            <i class="bi bi-arrow-up-right-circle text-primary me-2"></i>
+            Currently Learning
+          </h5>
+
+          <div class="d-flex flex-wrap gap-2">
+
+            <span class="learning-badge">C#</span>
+            <span class="learning-badge">.NET</span>
+            <span class="learning-badge">Entity Framework Core</span>
+            <span class="learning-badge">ABP Framework</span>
+            <span class="learning-badge">Backend Development</span>
+
+          </div>
+
+          <p class="text-muted small mt-3 mb-0">
+
+            Building practical backend projects to strengthen my
+            C#, .NET, Entity Framework Core and ABP Framework skills.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
+
 </section>
 
+<!-- Projects -->
 <section id="projects" class="section-padding">
+
   <div class="container">
-    <h2 class="text-center fw-bold mb-5" data-aos="fade-up">Featured Work</h2>
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-4" data-aos="fade-up">
-        <div class="project-card shadow-sm border">
-          <div class="project-img-container"><i class="bi bi-laptop"></i></div>
-          <div class="card-body p-4">
-            <div class="mb-3"><span class="tech-badge">Django</span> <span class="tech-badge">MySQL</span></div>
-            <h5 class="fw-bold">Inventory System</h5>
-            <p class="text-muted small">Full-stack CRUD application with automated stock tracking.</p>
-            <a href="#" class="text-primary text-decoration-none fw-bold small">Source Code <i class="bi bi-github"></i></a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-        <div class="project-card shadow-sm border">
-          <div class="project-img-container"><i class="bi bi-graph-up-arrow"></i></div>
-          <div class="card-body p-4">
-            <div class="mb-3"><span class="tech-badge">Power BI</span> <span class="tech-badge">Data Viz</span></div>
-            <h5 class="fw-bold">Sales Insights</h5>
-            <p class="text-muted small">Interactive dashboard transforming raw CSV data into trends.</p>
-            <a href="#" class="text-primary text-decoration-none fw-bold small">View Report <i class="bi bi-box-arrow-up-right"></i></a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-        <div class="project-card shadow-sm border">
-          <div class="project-img-container"><i class="bi bi-robot"></i></div>
-          <div class="card-body p-4">
-            <div class="mb-3"><span class="tech-badge">Python</span> <span class="tech-badge">Automation</span></div>
-            <h5 class="fw-bold">Data Scraper</h5>
-            <p class="text-muted small">Automated script to extract and clean web-based data.</p>
-            <a href="#" class="text-primary text-decoration-none fw-bold small">Source Code <i class="bi bi-github"></i></a>
-          </div>
-        </div>
-      </div>
+
+    <h2 class="text-center section-title" data-aos="fade-up">
+      Featured Work
+    </h2>
+
+    <p class="text-center text-muted mb-4">
+      Practical projects built while learning and developing my skills.
+    </p>
+
+    <div class="d-flex justify-content-center gap-2 flex-wrap my-4" id="filters">
+
+      <button class="filter-btn active" data-filter="all">
+        All
+      </button>
+
+      <button class="filter-btn" data-filter="web">
+        Frontend
+      </button>
+
     </div>
+
+    <div class="row g-4" id="projectGrid"></div>
+
   </div>
+
 </section>
 
-<section id="certificates" class="section-padding bg-light">
+<!-- Education -->
+<section id="certificates" class="section-padding bg-alt">
+
   <div class="container">
-    <h2 class="text-center fw-bold mb-5" data-aos="fade-up">Professional Certifications</h2>
-    <div class="row g-4">
-      <div class="col-md-6" data-aos="fade-right">
-        <div class="cert-card shadow-sm">
-          <span class="text-primary small fw-bold">COURSERA</span>
-          <h5 class="fw-bold">Google Data Analytics</h5>
-          <p class="text-muted small mb-0">Certified in SQL, R, and professional data visualization.</p>
-        </div>
-      </div>
-      <div class="col-md-6" data-aos="fade-left">
-        <div class="cert-card shadow-sm">
-          <span class="text-primary small fw-bold">PYTHON INSTITUTE</span>
-          <h5 class="fw-bold">PCEP Python Programmer</h5>
-          <p class="text-muted small mb-0">Certified entry-level Python programming proficiency.</p>
-        </div>
-      </div>
+
+    <h2 class="text-center section-title mb-5" data-aos="fade-up">
+      Education & Training
+    </h2>
+
+    <div class="course-card tilt mb-4" data-aos="flip-up">
+
+      <span class="course-tag">
+        COMPLETED
+      </span>
+
+      <h4 class="fw-bold mt-2">
+        Data Analytics Course
+      </h4>
+
+      <p class="mb-2">
+        SINET Institution, Kerala
+      </p>
+
+      <span class="course-tag">Python</span>
+      <span class="course-tag">Django</span>
+      <span class="course-tag">Data Analytics</span>
+      <span class="course-tag">Web Development</span>
+
     </div>
+
+    <div class="row justify-content-center">
+
+      <div class="col-md-8" data-aos="fade-up">
+
+        <div class="cert-card tilt shadow-sm">
+
+          <span class="text-primary small fw-bold">
+            DEGREE
+          </span>
+
+          <h5 class="fw-bold mt-2">
+            BSc Physics
+          </h5>
+
+          <p class="text-muted small mb-0">
+            Completed. Built a strong mathematical and analytical
+            foundation for data analysis and problem solving.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
+
 </section>
 
+<!-- Contact -->
 <section id="contact" class="section-padding">
-  <div class="container text-center">
-    <div data-aos="fade-up">
-      <h2 class="fw-bold mb-3">Get In Touch</h2>
-      <p class="text-muted mb-5">Open for data-driven roles and web development projects.</p>
-      <div class="d-flex justify-content-center gap-4">
-        <a href="https://wa.me/919778254259" target="_blank" class="contact-link" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
-        <a href="mailto:kdrisya603@email.com" class="contact-link" title="Email"><i class="bi bi-envelope-at"></i></a>
-        <a href="#" target="_blank" class="contact-link" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
-        <a href="#" target="_blank" class="contact-link" title="GitHub"><i class="bi bi-github"></i></a>
+
+  <div class="container">
+
+    <div class="text-center" data-aos="fade-up">
+
+      <h2 class="section-title">
+        Get In Touch
+      </h2>
+
+      <p class="text-muted mb-4">
+        Open to entry-level data analytics and web development opportunities.
+      </p>
+
+      <div class="d-flex justify-content-center gap-4 mb-5">
+
+        <a href="https://wa.me/919778254259"
+           target="_blank"
+           rel="noopener"
+           class="contact-link"
+           title="WhatsApp"
+           aria-label="WhatsApp">
+          <i class="bi bi-whatsapp"></i>
+        </a>
+
+        <a href="mailto:kdrisya603@gmail.com"
+           class="contact-link"
+           title="Email"
+           aria-label="Email">
+          <i class="bi bi-envelope-at"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/drisya-k-898174395/"
+           target="_blank"
+           rel="noopener"
+           class="contact-link"
+           title="LinkedIn"
+           aria-label="LinkedIn">
+          <i class="bi bi-linkedin"></i>
+        </a>
+
+        <a href="https://github.com/Drisya-123"
+           target="_blank"
+           rel="noopener"
+           class="contact-link"
+           title="GitHub"
+           aria-label="GitHub">
+          <i class="bi bi-github"></i>
+        </a>
+
       </div>
-      <div class="mt-5">
-        <span class="text-muted small">Located in</span>
-        <h6 class="fw-bold">Kerala, India</h6>
-      </div>
+
+      <p class="text-center mt-4 mb-0">
+
+        <span class="text-muted small">
+          Located in
+        </span>
+
+        <br>
+
+        <strong class="text-primary">
+          Kerala, India
+        </strong>
+
+      </p>
+
     </div>
+
   </div>
+
 </section>
 
-<footer class="py-4 border-top text-center bg-white">
-  <p class="text-muted mb-0 small">&copy; 2026 Drisya K. Built with Passion & Bootstrap.</p>
+<!-- Footer -->
+<footer class="py-4 text-center">
+
+  <p class="text-muted mb-0 small">
+    &copy; 2026 Drisya K. Built with HTML, CSS, Bootstrap & JavaScript.
+  </p>
+
 </footer>
 
+<!-- Back to top -->
+<button id="toTop" aria-label="Back to top">
+  <i class="bi bi-arrow-up"></i>
+</button>
+
+<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
 <script>
-  AOS.init({ duration: 1000, once: true });
-  new Typed('#typed', {
-    strings: ['Data Analytics', 'Python Development', 'Django Apps', 'MySQL Databases'],
-    typeSpeed: 50, backSpeed: 30, loop: true
+
+/* =========================
+   PROJECTS
+========================= */
+
+const projects = [
+
+  {
+    title:'Luxury Perfume Website',
+    cat:'web',
+    tags:['HTML','CSS','JS','Bootstrap'],
+    desc:'Elegant, responsive store-style site for a luxury perfume brand.',
+    link:'https://drisya-123.github.io/luxury-perfume/',
+    icon:'bi-droplet-half'
+  },
+
+  {
+    title:'Nike-style Website',
+    cat:'web',
+    tags:['HTML','CSS','JS','Bootstrap'],
+    desc:'Responsive product landing page inspired by Nike.',
+    link:'https://drisya-123.github.io/demonike/',
+    icon:'bi-bag-heart'
+  },
+
+  {
+    title:'SINET Institution Website',
+    cat:'web',
+    tags:['HTML','CSS','JS','Bootstrap'],
+    desc:'Clean, responsive institute website with course information.',
+    link:'https://drisya-123.github.io/sinet/',
+    icon:'bi-mortarboard-fill'
+  }
+
+];
+
+
+/* =========================
+   LOAD PROJECTS
+========================= */
+
+document.getElementById('projectGrid').innerHTML = projects.map((p,i) => `
+
+  <div class="col-md-6 col-lg-4 project-item"
+       data-cat="${p.cat}"
+       data-aos="fade-up"
+       data-aos-delay="${(i%3)*100}">
+
+    <div class="project-card tilt">
+
+      <div class="project-img">
+
+        ${
+          p.img
+          ? `<img src="${p.img}" alt="${p.title}" loading="lazy">`
+          : `<i class="bi ${p.icon || 'bi-window'}"></i>`
+        }
+
+      </div>
+
+      <div class="p-4 d-flex flex-column flex-grow-1">
+
+        <div class="mb-3">
+
+          ${p.tags.map(t =>
+            `<span class="tech-badge">${t}</span>`
+          ).join(' ')}
+
+        </div>
+
+        <h5 class="fw-bold">
+          ${p.title}
+        </h5>
+
+        <p class="text-muted small">
+          ${p.desc}
+        </p>
+
+        <a href="${p.link}"
+           target="_blank"
+           rel="noopener"
+           class="text-primary text-decoration-none fw-bold small mt-auto">
+
+          View Project
+          <i class="bi bi-box-arrow-up-right"></i>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+`).join('');
+
+
+/* =========================
+   AOS
+========================= */
+
+AOS.init({
+  duration:900,
+  once:true
+});
+
+
+/* =========================
+   TYPED TEXT
+========================= */
+
+new Typed('#typed', {
+
+  strings:[
+    'Data Analytics',
+    'Responsive Web Development',
+    'Python & Django Development',
+    'Backend Development',
+    '.NET & ABP Framework'
+  ],
+
+  typeSpeed:50,
+  backSpeed:30,
+  loop:true
+
+});
+
+
+/* =========================
+   THREE.JS BACKGROUND
+========================= */
+
+(function(){
+
+  const cv = document.getElementById('bg3d');
+
+  if(!cv || !window.THREE) return;
+
+  const renderer = new THREE.WebGLRenderer({
+    canvas:cv,
+    alpha:true,
+    antialias:true
   });
+
+  const scene = new THREE.Scene();
+
+  const camera = new THREE.PerspectiveCamera(
+    60,
+    1,
+    .1,
+    100
+  );
+
+  camera.position.z = 9;
+
+  const material = new THREE.MeshBasicMaterial({
+    color:0x2563eb,
+    wireframe:true,
+    transparent:true,
+    opacity:.35
+  });
+
+  const shapes = [
+
+    new THREE.Mesh(
+      new THREE.IcosahedronGeometry(2,1),
+      material
+    ),
+
+    new THREE.Mesh(
+      new THREE.TorusKnotGeometry(1,.3,100,12),
+      material
+    ),
+
+    new THREE.Mesh(
+      new THREE.OctahedronGeometry(1.2),
+      material
+    )
+
+  ];
+
+  shapes[0].position.set(-5,1.5,-2);
+  shapes[1].position.set(5,-1,-1);
+  shapes[2].position.set(0,-3.2,-3);
+
+  shapes.forEach(m => scene.add(m));
+
+  const pts = new Float32Array(600 * 3)
+    .map(() => (Math.random()-.5)*28);
+
+  const geometry = new THREE.BufferGeometry();
+
+  geometry.setAttribute(
+    'position',
+    new THREE.BufferAttribute(pts,3)
+  );
+
+  const dust = new THREE.Points(
+    geometry,
+    new THREE.PointsMaterial({
+      color:0x7c3aed,
+      size:.05
+    })
+  );
+
+  scene.add(dust);
+
+  let mx = 0;
+  let my = 0;
+
+  addEventListener('mousemove',e => {
+
+    mx = e.clientX / innerWidth - .5;
+    my = e.clientY / innerHeight - .5;
+
+  });
+
+  function size(){
+
+    const h = cv.parentElement;
+
+    renderer.setSize(
+      h.clientWidth,
+      h.clientHeight,
+      false
+    );
+
+    camera.aspect =
+      h.clientWidth / h.clientHeight;
+
+    camera.updateProjectionMatrix();
+
+  }
+
+  size();
+
+  addEventListener('resize',size);
+
+  const calm =
+    matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  (function loop(){
+
+    material.color.set(
+      document.documentElement.getAttribute('data-bs-theme') === 'dark'
+      ? 0x60a5fa
+      : 0x2563eb
+    );
+
+    if(!calm){
+
+      shapes.forEach((m,i) => {
+
+        m.rotation.x += .003 * (i+1);
+        m.rotation.y += .004 * (i+1);
+
+      });
+
+      dust.rotation.y += .0007;
+
+    }
+
+    camera.position.x +=
+      (mx*2 - camera.position.x) * .05;
+
+    camera.position.y +=
+      (-my*2 - camera.position.y) * .05;
+
+    camera.lookAt(0,0,0);
+
+    renderer.render(scene,camera);
+
+    requestAnimationFrame(loop);
+
+  })();
+
+})();
+
+
+/* =========================
+   3D CARD TILT
+========================= */
+
+document.querySelectorAll('.tilt').forEach(card => {
+
+  card.addEventListener('mousemove',e => {
+
+    const b = card.getBoundingClientRect();
+
+    const x =
+      (e.clientX-b.left)/b.width-.5;
+
+    const y =
+      (e.clientY-b.top)/b.height-.5;
+
+    card.style.transform =
+      `perspective(800px)
+       rotateY(${x*14}deg)
+       rotateX(${-y*14}deg)
+       translateY(-6px)`;
+
+  });
+
+  card.addEventListener('mouseleave',() => {
+
+    card.style.transform = '';
+
+  });
+
+});
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+const root =
+  document.documentElement;
+
+const themeButton =
+  document.getElementById('themeToggle');
+
+function setTheme(theme){
+
+  root.setAttribute(
+    'data-bs-theme',
+    theme
+  );
+
+  themeButton.innerHTML =
+    theme === 'dark'
+    ? '<i class="bi bi-sun-fill"></i>'
+    : '<i class="bi bi-moon-stars-fill"></i>';
+
+  try{
+
+    localStorage.setItem(
+      'theme',
+      theme
+    );
+
+  }catch(e){}
+
+}
+
+let savedTheme = 'light';
+
+try{
+
+  savedTheme =
+    localStorage.getItem('theme') ||
+    (
+      matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark'
+      : 'light'
+    );
+
+}catch(e){}
+
+setTheme(savedTheme);
+
+themeButton.onclick = () => {
+
+  setTheme(
+    root.getAttribute('data-bs-theme') === 'dark'
+    ? 'light'
+    : 'dark'
+  );
+
+};
+
+
+/* =========================
+   SCROLL PROGRESS
+========================= */
+
+const navLinks =
+  [...document.querySelectorAll('.navbar .nav-link')];
+
+const sections =
+  navLinks.map(link =>
+    document.querySelector(
+      link.getAttribute('href')
+    )
+  );
+
+addEventListener('scroll',() => {
+
+  const h =
+    document.documentElement;
+
+  document.getElementById('progress')
+    .style.width =
+    (
+      h.scrollTop /
+      (h.scrollHeight-h.clientHeight)
+      * 100
+    ) + '%';
+
+  document.getElementById('toTop')
+    .style.display =
+    h.scrollTop > 400
+    ? 'block'
+    : 'none';
+
+  let current = -1;
+
+  sections.forEach((section,index) => {
+
+    if(section &&
+       section.getBoundingClientRect().top <= 120){
+
+      current = index;
+
+    }
+
+  });
+
+  navLinks.forEach((link,index) => {
+
+    link.classList.toggle(
+      'active',
+      index === current
+    );
+
+  });
+
+});
+
+
+/* =========================
+   BACK TO TOP
+========================= */
+
+document.getElementById('toTop').onclick = () => {
+
+  scrollTo({
+    top:0,
+    behavior:'smooth'
+  });
+
+};
+
+
+/* =========================
+   COUNT UP
+========================= */
+
+document.querySelectorAll('.count').forEach(el => {
+
+  const to = +el.dataset.to;
+
+  let number = 0;
+
+  const timer = setInterval(() => {
+
+    number++;
+
+    el.textContent = number;
+
+    if(number >= to){
+
+      clearInterval(timer);
+
+    }
+
+  },300);
+
+});
+
+
+/* =========================
+   PROJECT FILTER
+========================= */
+
+document.querySelectorAll('.filter-btn')
+.forEach(button => {
+
+  button.onclick = () => {
+
+    document.querySelectorAll('.filter-btn')
+    .forEach(btn =>
+      btn.classList.remove('active')
+    );
+
+    button.classList.add('active');
+
+    document.querySelectorAll('.project-item')
+    .forEach(project => {
+
+      project.classList.toggle(
+        'hide',
+        button.dataset.filter !== 'all' &&
+        project.dataset.cat !== button.dataset.filter
+      );
+
+    });
+
+  };
+
+});
+
 </script>
 
 </body>
